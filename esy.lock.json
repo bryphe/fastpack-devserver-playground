@@ -724,7 +724,7 @@
           {
             "name": "_esy/num-1.1.patch",
             "content":
-              "--- ./src/Makefile\n+++ ./src/Makefile\n@@ -80,7 +80,7 @@\n ifeq \"$(NATDYNLINK)\" \"true\"\n TOINSTALL+=nums.cmxs\n endif\n-TOINSTALL_STUBS=dllnums.$(SO)\n+TOINSTALL_STUBS=dllnums$(EXT_DLL)\n \n install:\n \t$(OCAMLFIND) install num META\n@@ -97,7 +97,7 @@\n \t$(OCAMLFIND) remove num\n \n clean:\n-\trm -f *.cm[ioxta] *.cmx[as] *.cmti *.$(O) *.$(A) *.$(SO)\n+\trm -f *.cm[ioxta] *.cmx[as] *.cmti *.$(O) *.$(A) *$(EXE_DLL)\n \n depend:\n \t$(OCAMLDEP) -slash *.mli *.ml > .depend\n"
+              "--- ./src/Makefile\n+++ ./src/Makefile\n@@ -80,7 +80,7 @@\n ifeq \"$(NATDYNLINK)\" \"true\"\n TOINSTALL+=nums.cmxs\n endif\n ifeq \"$(SUPPORTS_SHARED_LIBRARIES)\" \"true\"\n-TOINSTALL_STUBS=dllnums.$(SO)\n+TOINSTALL_STUBS=dllnums$(EXT_DLL)\n \n install:\n@@ -112,7 +112,7 @@\n endif\n \n clean:\n-\trm -f *.cm[ioxta] *.cmx[as] *.cmti *.$(O) *.$(A) *.$(SO)\n+\trm -f *.cm[ioxta] *.cmx[as] *.cmti *.$(O) *.$(A) *$(EXE_DLL)\n \n depend:\n \t$(OCAMLDEP) -slash *.mli *.ml > .depend\n"
           }
         ],
         "opam": {
